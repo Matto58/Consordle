@@ -217,7 +217,7 @@
             Console.Clear();
 
             string[] w = d.words5;
-            string[] guesses = {"","","","","",""};
+            string[] guesses = { "", "", "", "", "", "" };
             string word = w[r.Next(w.Length)];
             char[] wordarray = word.ToUpper().ToCharArray();
             Console.ForegroundColor = ConsoleColor.White;
@@ -261,10 +261,9 @@
                             Console.Write(guessarray[j]);
                         }
                         Console.ForegroundColor = ConsoleColor.White;
-
                     }
                     int g = 0;
-                    for (int k = 0; k < 5; k += 1) if (guessstate[k] == 2) g += 1;
+                    for (int l = 0; l < 5; l += 1) if (guessstate[l] == 2) g += 1;
                     if (g == 5)
                     {
                         int guessesAmount = 0;
@@ -272,7 +271,9 @@
                         for (int l = 0; l < 6; l += 1) if (guesses[l] != "") guessesAmount += 1;
                         if (guessesAmount == 1) guessFall = " pokus!";
                         else if (guessesAmount >= 2 && guessesAmount <= 4) guessFall = " pokusy!";
-                        Console.Write("\nGratuluji, uhádli jste to za " + guessesAmount + guessFall);
+                        Console.Write("\nGratuluji, uhádli jste to za " + guessesAmount + guessFall + "\n");
+                        Console.WriteLine("Sdílejte váš postup na Twitteru:\n\n#Consordle " + guessesAmount + "/6");
+                        for (int m = 0; m < guessesAmount; m += 1) Console.WriteLine(guesses[m].ToUpper());
                         Console.ReadKey();
                         Environment.Exit(0);
                     }
@@ -345,7 +346,11 @@
                     for (int k = 0; k < 5; k += 1) if (guessstate[k] == 2) g += 1;
                     if (g == 5)
                     {
-                        Console.Write("\nCongratulations! You guessed it in " + guesses.Length + " guesses!");
+                        int guessesAmount = 0;
+                        for (int l = 0; l < 6; l += 1) if (guesses[l] != "") guessesAmount += 1;
+                        Console.Write("\nCongratulations! You guessed it in " + guessesAmount + " guesses! ");
+                        Console.WriteLine("Share your result on Twitter:\n\n#Consordle " + guessesAmount + "/6");
+                        for (int m = 0; m < guessesAmount; m += 1) Console.WriteLine(guesses[m].ToUpper());
                         Console.ReadKey();
                         Environment.Exit(0);
                     }
