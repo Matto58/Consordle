@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Consordle": {
+      "commandName": "Project",
+      "commandLineArgs": "-cz"
+    }
+  }
+}
