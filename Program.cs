@@ -346,9 +346,11 @@
                     for (int k = 0; k < 5; k += 1) if (guessstate[k] == 2) g += 1;
                     if (g == 5)
                     {
+                        string guessFall = " guesses!";
                         int guessesAmount = 0;
                         for (int l = 0; l < 6; l += 1) if (guesses[l] != "") guessesAmount += 1;
-                        Console.Write("\nCongratulations! You guessed it in " + guessesAmount + " guesses! ");
+                        if (guessesAmount == 1) guessFall = " guess!";
+                        Console.Write("\nCongratulations! You guessed it in " + guessesAmount + guessFall + " ");
                         Console.WriteLine("Share your result on Twitter:\n\n#Consordle " + guessesAmount + "/6");
                         for (int m = 0; m < guessesAmount; m += 1) Console.WriteLine(guesses[m].ToUpper());
                         Console.ReadKey();
